@@ -14,6 +14,7 @@ async function createMainWindow() {
     })
 
     await mainWindow.loadFile(path.join(__dirname, './view/home.html'))
+    server = require('./db/server')
 }
 
 app.whenReady().then(createMainWindow)

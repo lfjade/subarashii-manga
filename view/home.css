@@ -54,3 +54,9 @@ body, html{
     flex-direction:column;
     height:100%
 }
+
+.card{
+    width:120px;
+    height: 150px;
+    background-color: #FFF4B1;
+}

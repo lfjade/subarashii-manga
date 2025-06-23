@@ -83,7 +83,7 @@ CREATE TABLE `mangas` (
   `n_volumes` int DEFAULT NULL,
   `splash` blob,
   PRIMARY KEY (`idmanga`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -92,6 +92,7 @@ CREATE TABLE `mangas` (
 
 LOCK TABLES `mangas` WRITE;
 /*!40000 ALTER TABLE `mangas` DISABLE KEYS */;
+INSERT INTO `mangas` VALUES (1,'xxxHolic','xxxHolic acompanha Kimihiro Watanuki, um jovem atormentado por espíritos que só ele pode ver. Ao entrar por acaso na misteriosa loja da enigmática Yuuko Ichihara, ele se vê envolvido em casos sobrenaturais e lições espirituais profundas, trabalhando em troca de sua liberdade. Um mangá que mistura misticismo, humor e reflexões sobre desejos e destino.','Clamp','Young Magazine','de 2003 a 2007',23,_binary 'xxxHolic.png'),(2,'Sailor Moon','Sailor Moon conta a história de Usagi Tsukino, uma adolescente desastrada que descobre ser uma guerreira mágica destinada a proteger a Terra das forças do mal. Ao lado de outras Sailor Guardians, ela enfrenta inimigos sombrios, vive romances e aprende sobre amizade, coragem e seu verdadeiro destino como princesa da Lua.','Naoko Takeushi','Kodansha','de 1991 a 1997',18,_binary 'sailor-moon.png'),(3,'Fullmetal Alchemist','Fullmetal Alchemist acompanha os irmãos Edward e Alphonse Elric, alquimistas que quebraram um tabu ao tentar ressuscitar sua mãe. Após a tentativa falha, embarcam em uma jornada em busca da Pedra Filosofal para restaurar seus corpos. A trama mistura ação, política e filosofia, explorando sacrifícios, ética e o preço do poder.','Hiromu Arakawa','Enix','de 2001 a 2010',27,_binary 'fullmetal.png'),(4,'Kuroshitsuji','Kuroshitsuji narra a história de Ciel Phantomhive, um jovem conde inglês que faz um pacto com Sebastian, um mordomo demoníaco, em busca de vingança por sua família. Enquanto resolvem crimes na Londres vitoriana, segredos sombrios emergem. Misturando mistério, ação e elementos sobrenaturais, o mangá explora lealdade, dor e a natureza do poder','Yana Tobosu','Square Enix','de 2006 aos dias atuais',34,_binary 'kuroshitsuji.png'),(5,'Pandora Hearts','Pandora Hearts segue Oz Vessalius, herdeiro de uma nobre família, que é lançado ao misterioso Abismo durante sua cerimônia de maioridade. Lá, forma um contrato com a poderosa Alice, uma \"Chain\" em busca de suas memórias. Envolvido em conspirações e segredos do passado, Oz mergulha em um mundo sombrio repleto de mistério, magia e destino.','Jun Mochizuki','Square Enix','de 2006 a 2015',24,_binary 'pandora-hearts.png'),(6,'InuYasha','Inuyasha conta a história de Kagome, uma adolescente do presente que é transportada ao Japão feudal, onde conhece Inuyasha, um meio-youkai em busca da Joia de Quatro Almas. Juntos, enfrentam demônios e inimigos poderosos enquanto reúnem os fragmentos da joia. A trama mistura ação, romance, mitologia e viagens entre mundos.','Rumiko Takahashi','Shogakukan','de 1996 a 2008',56,_binary 'inuyasha.png'),(7,'Paradise Kiss','Paradise Kiss acompanha Yukari Hayasaka, uma estudante exemplar que vê sua vida mudar ao conhecer um grupo de excêntricos estudantes de moda. Ao se tornar modelo para o projeto deles, ela mergulha no mundo da arte, autodescoberta e amores intensos. Um mangá sobre identidade, escolhas e o confronto entre expectativas e desejos pessoais.','Ai Yazawa','Shodensha','de 1999 a 2003',5,_binary 'paradise-kiss.png'),(8,'Puella Magi Madoka Magica','Madoka Magica apresenta Madoka Kaname, uma garota comum que recebe a proposta de se tornar uma garota mágica e combater criaturas malignas. Ao lado de outras garotas, ela descobre que o heroísmo tem um custo terrível. Com uma narrativa sombria e emocional, o mangá desconstrói o gênero mahou shoujo com profundidade e tragédia.','Gen Urobuchi','Houbunsha','junho de 2012',3,_binary 'madoka.png');
 /*!40000 ALTER TABLE `mangas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -131,4 +132,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-06-23  4:25:49
+-- Dump completed on 2025-06-23  8:07:59
