@@ -6,19 +6,23 @@ window.addEventListener('DOMContentLoaded', async () =>{
         const mangas = await resposta.json()
 
         mangas.forEach(manga =>{
+            const wrapper=document.createElement('div')
+            wrapper.classList.add('wrapper')
+
             const card = document.createElement('div')
             card.classList.add('card')
 
             const img = document.createElement('img')
             img.src=`http://localhost:3000/splash/${manga.idmanga}`
             img.alt=manga.titulo
+            card.appendChild(img)
 
             const titulo = document.createElement('span')
             titulo.textContent=manga.titulo
 
-            card.appendChild(img)
-            card.appendChild(titulo)
-            container.appendChild(card)
+            wrapper.appendChild(card)
+            wrapper.appendChild(titulo)
+            container.appendChild(wrapper)
         })
     } catch (erro){
         console.error("Erro ao carregar splashes.")

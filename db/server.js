@@ -19,25 +19,22 @@ app.get('/mangas', async (req, res) =>{
 })
 
 app.get('/splash/:id', async (req, res) =>{
-    const id=req.params.id
+    const {id}= req.params
+    try{
+        const manga=await db('mangas').where('idmanga', id).first()
 
-    try {
-        const manga = await db('mangas').where(idmanga, id).first()
-
-        if (manga && manga.splash){
-            res.set('Content-Type', 'image/png')
-            res.send(manga.splash)
-        } else {
-            res.status(404).send("Imagem não encontrada.")
+        if (!manga || !manga.splash){
+            return res.status(404).send("Imagem não encontrada.")
         }
+
+        res.setHeader('Content-Type', 'image/png')
+        res.send(manga.splash)
     } catch (erro){
-        console.error(erro)
-        res.status(500).send("Erro ao carregar imagem.")
+        console.error("Erro ao buscar splash: ", erro)
+        res.status(500).send("Erro interno ao buscar imagem.")
     }
 })
 
-const path = require('path')
-app.use('/imagens', express.static(path.join(__dirname, 'public', 'imagens')))
 
 app.listen(3000, () =>{
     console.log('servidor rodando na porta 3000.')
