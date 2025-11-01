@@ -1,5 +1,4 @@
 export function cardsDosVolumes(volumes){
-    console.log(volumes)
     const cardsVolumes=document.getElementById('cardsVolumes')
 
     volumes.forEach(volume =>{
