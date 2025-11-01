@@ -1,12 +1,13 @@
-export function cardsDosVolumes(volume){
+export function cardsDosVolumes(volumes){
+    console.log(volumes)
     const cardsVolumes=document.getElementById('cardsVolumes')
 
-    volume.forEach(volume =>{
+    volumes.forEach(volume =>{
         const card = document.createElement('div')
         card.classList.add('volume-card')
 
         const imgVolume=document.createElement('img')
-        imgVolume.src=`http://localhost:3000/volumes/splash${volume.idVolume}`
+        imgVolume.src=`http://localhost:3000/volumes/splash/${volume.idVolume}`
         imgVolume.alt=`Volume ${volume.numero}`
         card.appendChild(imgVolume)
 

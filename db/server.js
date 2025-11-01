@@ -39,60 +39,11 @@ app.get('/volumes', async (req, res) =>{
     res.json(rows)
 })
 
-// app.get('/volumes/:idManga', async (req, res) =>{
-
-//     const {idManga}=req.params
-
-//     try{
-//         const volumes=await db('volumes').select('idvolume', 'numero', 'sinopse', 'idmanga').where('idmanga', idManga)
-//         if(volumes.length===0) {
-//             return res.status(404).send("volume não encontrado.")
-//         }
-//         res.send(volumes)
-//     } catch (erro) {
-//         console.error("Erro ao buscar volume: ", erro)
-//         res.status(500).send("Erro interno ao buscar volume.")
-//     }
-// })
-
-// app.get('/volumes/numero/:idVolume', async (req, res) =>{
-//     const {idVolume}=req.params
-
-//     try{
-//         const volume=await db('volumes').where('idvolume', idVolume).first('numero')
-
-//         if(!volume) {
-//             return res.status(404).send("Volume não encontrado.")
-//         }
-
-//         res.send(String(volume.numero))
-//     } catch (erro) {
-//         console.error("Erro ao buscar número do volume: ", erro)
-//         res.status(500).send("Erro interno ao buscar número do volume")
-//     }
-// })
-
-// app.get('/volumes/splash/:idVolume', async (req, res) =>{
-//     const {idVolume}=req.params
-
-//     try{
-//         const splashVolume=await db('volumes').where('idvolume', idVolume).select('splash').first()
-//         if(!splashVolume) {
-//             return res.status(404).send("Splash não encontrada.")
-//         }
-//         res.send(splashVolume)
-//     } catch (erro) {
-//         console.error("Erro ao buscar splash: ", erro)
-//         res.status(500).send("Erro interno ao buscar splash.")
-//     }
-// })
-
-// rota: recuperar de volumes todos os volumes de um mangá, retornar id, número e splash.
 
 app.get('/volumes/:idManga', async (req, res) =>{
     const {idManga} = req.params
     try {
-        const volumesParaCard = await db('volumes').select('idVolume', 'numero', 'splash').where('idmanga', idManga)
+        const volumesParaCard = await db('volumes').select('idVolume', 'numero').where('idmanga', idManga)
 
         if (volumesParaCard.length===0){
             return res.status(404).send("Volumes não encontrados.")
@@ -102,6 +53,24 @@ app.get('/volumes/:idManga', async (req, res) =>{
     } catch (erro) {
         console.error("Erro ao buscar volumes: ", erro)
         res.status(500).send("Erro interno ao buscar volumes.")
+    }
+})
+
+app.get('/volumes/splash/:idVolume', async (req, res) =>{
+    const {idVolume}=req.params
+
+    try{
+        const volume=await db('volumes').where('idvolume', idVolume).first()
+
+        if(!volume || !volume.splash){
+            return res.status(404).send("Splash não encontrada.")
+        }
+
+        res.setHeader('Content-Type', 'image/png')
+        res.send(volume.splash)
+    } catch (erro){
+        console.error("Erro ao buscar splash: ", erro)
+        res.status(500).send("Erro interno ao buscar splash.")
     }
 })
 

@@ -43,3 +43,7 @@
 #menu img {
     cursor: pointer;
 }
+
+.volume-card{
+    /* classe criada dinamicamente */
+}
