@@ -19,6 +19,13 @@ async function createMainWindow() {
 
 app.whenReady().then(createMainWindow)
 
+ipcMain.on('voltar', () =>{
+    const janela = BrowserWindow.getFocusedWindow()
+    if (janela && janela.webContents.navigationHistory.canGoBack()){
+        janela.webContents.navigationHistory.goBack()
+    }
+})
+
 ipcMain.on('fechar', () => app.quit())
 
 app.on('window-all-closed', () =>{

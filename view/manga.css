@@ -1,0 +1,45 @@
+#hero{
+    justify-self: center;
+    align-self: center;
+    width: 90%;
+    height: 90%;
+    background-color: #FFF4B1;
+    display:flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+#main{
+    flex:3;
+    display:flex;
+    gap:10px;
+}
+
+#main h1{
+    display:inline
+}
+
+#topo{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+#topo img {
+    aspect-ratio: 1/1;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+#dados{
+    flex:4;
+}
+
+#menu{
+    flex:3;
+    display:flex;
+}
+
+#menu img {
+    cursor: pointer;
+}

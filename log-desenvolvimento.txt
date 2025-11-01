@@ -1,2 +1,11 @@
 22/06/25 05:53 - Olá mundo!
         ! fontes quicksand e poiret one
+
+
+to do:
+* rota generos ok
+* rota splash volume
+* padronizar rotas
+
+30/10/25:
+acho que vou precisar refazer todos os css pq nao consigo resolver o problema do tamanho do footer de jeito nenhum

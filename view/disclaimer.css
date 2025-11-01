@@ -1,0 +1,48 @@
+#hero{
+    margin:60px;
+    display: flex;
+    flex-direction: column;
+}
+
+#box-3{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#box-3 p {
+    flex-direction: row;
+    font-family: 'Poiret One';
+    display: inline-block;
+    font-size: 24px;
+}
+
+h1{
+    font-size: 48px;
+}
+
+#esses-sao{
+    font-size: 32px;
+    width: 535px;
+    display: inline-block;
+    margin-left: auto;
+    padding: 20px 0px;
+}
+
+#e-eu-nao{
+    width: 600px;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+#exceto-madoka{
+    font-size: 12px;
+    display: inline-block;
+    margin: 0 auto;
+    margin-bottom: auto;
+    position: fixed;
+    bottom: 50px;
+    left: 20%;
+
+}
