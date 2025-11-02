@@ -2,7 +2,6 @@ import { cardsDosVolumes } from "./volumeView.js"
 
 export async function renderManga(manga, volumes){
     const splashManga=document.getElementById('splashmanga')
-    //const mangaContent=document.getElementById('mangacontent')
     const tituloManga = document.getElementById('titulo')
     const sinopseManga=document.getElementById('sinopse')
     const escrito_por=document.getElementById('escrito_por')
@@ -10,7 +9,9 @@ export async function renderManga(manga, volumes){
     const lancamento=document.getElementById('lancamento')
     const n_volumes=document.getElementById('n_volumes')
     const generos=document.getElementById('generos')
-    const menu=document.getElementById('menu')
+    const navEsquerda=document.getElementById('navEsquerda')
+    const navDireita=document.getElementById('navDireita')
+    const cardsVolumes=document.getElementById('cardsVolumes')
 
     const btnFechar=document.getElementById('voltar')
     if(btnFechar) btnFechar.addEventListener('click', () => window.nav.voltar())
@@ -20,9 +21,8 @@ export async function renderManga(manga, volumes){
     img.alt=manga.titulo
     splashManga.appendChild(img)
 
-    // const volumesLimitados=volumes.slice(0,7)
-    // cardsDosVolumes(volumesLimitados)
-    cardsDosVolumes(volumes)
+
+
 
     tituloManga.textContent=manga.titulo
     sinopseManga.textContent=manga.sinopse
@@ -32,6 +32,31 @@ export async function renderManga(manga, volumes){
     n_volumes.textContent=`Número de volumes: ${manga.n_volumes}`
     generos.textContent=`Gêneros: ${manga.generos}`
 
-    
+    let v0=0
+    let vf=6
 
+    renderVolumes()
+
+    navEsquerda.addEventListener('click', () =>{
+        if (v0>0){
+            v0 -= 1
+            vf -= 1
+            renderVolumes()   
+        }
+    })
+
+    navDireita.addEventListener('click', () =>{
+        if (vf<volumes.length){
+            v0 +=1
+            vf +=1
+            renderVolumes()   
+        }
+    })
+    
+    function renderVolumes(){
+        const volumesLimitados=volumes.slice(v0, vf)
+        cardsVolumes.innerHTML=''
+        cardsDosVolumes(volumesLimitados)
+    }
+    
 }

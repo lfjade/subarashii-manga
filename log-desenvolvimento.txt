@@ -9,3 +9,8 @@ to do:
 
 30/10/25:
 acho que vou precisar refazer todos os css pq nao consigo resolver o problema do tamanho do footer de jeito nenhum
+
+01/01/25: saving point: tomando um pau pro css na página manga, na parte da exibição dos volumes.
+ideia: começar limitando a quantidade de mangás visualizados por vez, e partir pra corrigir a exibição a partir daí.
+
+no caso de cansar de CSS: começar a trabalhar a visualização da página volumes, e vai ser a última graças a deus
