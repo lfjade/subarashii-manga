@@ -93,5 +93,13 @@ p{
 }
 
 #generos{
+    display:flex;
+    align-items: center;
     gap:5px
+}
+
+#generos p {
+    background-color: #DCCFF3;
+    padding: 1px 7px;
+    border-radius: 5px;
 }

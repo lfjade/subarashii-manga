@@ -33,10 +33,10 @@ export async function renderManga(manga, volumes){
     generos.textContent=`Gêneros: `
     
     manga.generos.forEach(g =>{
-        const span = document.createElement('span')
-        span.classList.add('generos-span')
-        span.textContent=g
-        generos.appendChild(span)
+        const p = document.createElement('p')
+        p.classList.add('generos-p')
+        p.textContent=g
+        generos.appendChild(p)
     })
 
 
