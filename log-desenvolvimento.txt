@@ -14,3 +14,8 @@ acho que vou precisar refazer todos os css pq nao consigo resolver o problema do
 ideia: começar limitando a quantidade de mangás visualizados por vez, e partir pra corrigir a exibição a partir daí.
 
 no caso de cansar de CSS: começar a trabalhar a visualização da página volumes, e vai ser a última graças a deus
+
+02/11/25: deu tudo certo até aqui, proxima fase é alimentar o banco, pra depois ir pra página Volume.
+
+
+02/11/25 banco alimentado
