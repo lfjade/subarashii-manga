@@ -30,10 +30,20 @@ export async function renderManga(manga, volumes){
     publicado_por.textContent=`Publicado por: ${manga.publicado_por}`
     lancamento.textContent=`Lançado em: ${manga.lancamento}`
     n_volumes.textContent=`Número de volumes: ${manga.n_volumes}`
-    generos.textContent=`Gêneros: ${manga.generos}`
+    generos.textContent=`Gêneros: `
+    
+    manga.generos.forEach(g =>{
+        const span = document.createElement('span')
+        span.classList.add('generos-span')
+        span.textContent=g
+        generos.appendChild(span)
+    })
+
+
+
 
     let v0=0
-    let vf=6
+    let vf=8
 
     renderVolumes()
 
