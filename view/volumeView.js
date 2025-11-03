@@ -34,7 +34,6 @@ export function cardsDosVolumes(volumes){
 
         cardsVolumes.appendChild(card)
         
-        // evento de direcionamento para página do volume
         card.addEventListener('click', () =>{
             window.location.href= `volume.html?id=${volume.idVolume}`
         })

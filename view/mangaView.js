@@ -13,8 +13,8 @@ export async function renderManga(manga, volumes){
     const navDireita=document.getElementById('navDireita')
     const cardsVolumes=document.getElementById('cardsVolumes')
 
-    const btnFechar=document.getElementById('voltar')
-    if(btnFechar) btnFechar.addEventListener('click', () => window.nav.voltar())
+    // const btnFechar=document.getElementById('voltar')
+    // if(btnFechar) btnFechar.addEventListener('click', () => window.nav.voltar())
 
     const img = document.createElement('img')
     img.src=`http://localhost:3000/splash/${manga.id}`

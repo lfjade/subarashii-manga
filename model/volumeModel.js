@@ -1,24 +1,10 @@
-class Volume{
-    constructor({ idvolume, numero, sinopse, idmanga}){
-        this.idvolume=idvolume
-        this.numero=numero
-        this.sinopse=sinopse
-        this.idManga=idmanga
-    }
-
-}
-
 export async function getVolumeManga(idManga){
     try{
         const resposta = await fetch(`http://localhost:3000/volumes/${idManga}`)
-
         if (!resposta.ok) throw new Error("Erro ao buscar volume.")
 
-        const dados = await resposta.json();
+        return await resposta.json()
 
-        const volume = new Volume(dados)
-
-        return volume
     } catch (erro){
         console.error("Erro no Model:", erro);
         throw erro;
@@ -28,7 +14,7 @@ export async function getVolumeManga(idManga){
 export async function getVolumeVolume(idVolume){
     const response=await fetch(`http://localhost:3000/volumes/volume/${idVolume}`)
     if (!response.ok) throw new Error("Erro ao buscar volume.")
-    return response.json
+    return response.json()
 }
 
 export async function getSplash(idVolume){

@@ -1,7 +1,6 @@
 import { getListaMangas } from "../model/homeModel.js"
 import { renderMangas } from "../view/homeView.js"
 
-
 window.addEventListener('DOMContentLoaded', async () =>{
     const container = document.getElementById('hero')
 
