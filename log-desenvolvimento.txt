@@ -19,3 +19,8 @@ no caso de cansar de CSS: começar a trabalhar a visualização da página volum
 
 
 02/11/25 banco alimentado
+
+! background image dinamico
+! titulos de pagina dinamicos
+! icon no programa
+! "exportar" como executável

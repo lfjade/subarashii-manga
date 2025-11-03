@@ -21,9 +21,6 @@ export async function renderManga(manga, volumes){
     img.alt=manga.titulo
     splashManga.appendChild(img)
 
-
-
-
     tituloManga.textContent=manga.titulo
     sinopseManga.textContent=manga.sinopse
     escrito_por.textContent=`Escrito por: ${manga.escrito_por}`
@@ -38,9 +35,6 @@ export async function renderManga(manga, volumes){
         p.textContent=g
         generos.appendChild(p)
     })
-
-
-
 
     let v0=0
     let vf=8

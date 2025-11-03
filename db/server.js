@@ -40,7 +40,7 @@ app.get('/volumes', async (req, res) =>{
 })
 
 
-app.get('/volumes/:idManga', async (req, res) =>{
+app.get('/volumes/manga/:idManga', async (req, res) =>{
     const {idManga} = req.params
     try {
         const volumesParaCard = await db('volumes').select('idVolume', 'numero').where('idmanga', idManga)
@@ -53,6 +53,27 @@ app.get('/volumes/:idManga', async (req, res) =>{
     } catch (erro) {
         console.error("Erro ao buscar volumes: ", erro)
         res.status(500).send("Erro interno ao buscar volumes.")
+    }
+})
+
+app.get('/volumes/volume/:idVolume', async (req, res) =>{
+    const {idVolume}= req.params
+
+    try{
+        const volume = await db('volumes')
+        .join ('mangas','mangas.idmanga', '=', 'volumes.idmanga')
+        .where('idvolume', idVolume)
+        .select('mangas.titulo', 'volumes.numero', 'volumes.sinopse')
+        .first()
+
+        if (!volume) {
+            return res.status(404).send("Volume não encontrado.")
+        }
+
+        res.send(volume)
+    } catch (erro) {
+        console.error("Erro ao buscar volume: ", erro)
+        res.status(500).send("Erro interno ao buscar volume.")
     }
 })
 

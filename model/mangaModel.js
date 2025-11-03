@@ -39,7 +39,7 @@ export async function getMangaGeneros(id) {
 }
 
 export async function getVolumesPorManga(idManga){
-    const res=await fetch(`http://localhost:3000/volumes/${idManga}`)
+    const res=await fetch(`http://localhost:3000/volumes/manga/${idManga}`)
     if (!res.ok) throw new Error ("Volumes não encontrados.")
     return await res.json()
 }

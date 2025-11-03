@@ -9,7 +9,7 @@
     font-src 'self' https://fonts.gstatic.com;
     script-src 'self';
     connect-src 'self' http://localhost:3000;
-    img-src 'self' http://localhost:3000;
+    img-src 'self' http://localhost:3000 blob:;
     ">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
@@ -31,7 +31,22 @@
     </header>
 
     <div id = "hero">
-        
+        <div class = "bg-image"></div>
+        <div id = "c-1">
+            <img src = "../splash/icon/fechar.png" alt = "voltar" id="voltar">
+        </div>
+        <div id="c-2">
+            <img src="../splash/icon/navEsquerda.png" id="navEsquerda">
+            <div id = "texto">
+                <h1 id = "titulo-volume"></h1>
+                <p id="sinopse"></p>
+            </div>
+            <div id="div-splash">
+                <img id = "splash-volume">
+            </div>
+            <img src="../splash/icon/navDireita.png" id="navDireita">
+        </div>
+
     </div>
     
     <footer>
@@ -40,6 +55,6 @@
         <img src="../splash/icon/copyright.png" alt="copyright">
         <p>2025. feito com amor.</p>
     </footer>
-    <script src="volumeView.js"></script>
+    <script type = "module" src="../controller/volumeController.js"></script>
 </body>
 </html>
