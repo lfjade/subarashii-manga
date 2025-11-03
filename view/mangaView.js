@@ -13,9 +13,6 @@ export async function renderManga(manga, volumes){
     const navDireita=document.getElementById('navDireita')
     const cardsVolumes=document.getElementById('cardsVolumes')
 
-    // const btnFechar=document.getElementById('voltar')
-    // if(btnFechar) btnFechar.addEventListener('click', () => window.nav.voltar())
-
     const img = document.createElement('img')
     img.src=`http://localhost:3000/splash/${manga.id}`
     img.alt=manga.titulo
@@ -36,31 +33,65 @@ export async function renderManga(manga, volumes){
         generos.appendChild(p)
     })
 
-    let v0=0
-    let vf=8
+    // let v0=0
+    // let vf=8
 
-    renderVolumes()
+    // renderVolumes()
 
-    navEsquerda.addEventListener('click', () =>{
-        if (v0>0){
-            v0 -= 1
-            vf -= 1
-            renderVolumes()   
-        }
-    })
+    // navEsquerda.addEventListener('click', () =>{
+    //     if (v0>0){
+    //         v0 -= 1
+    //         vf -= 1
+    //         renderVolumes()   
+    //     }
+    // })
 
-    navDireita.addEventListener('click', () =>{
-        if (vf<volumes.length){
-            v0 +=1
-            vf +=1
-            renderVolumes()   
-        }
-    })
+    // navDireita.addEventListener('click', () =>{
+    //     if (vf<volumes.length){
+    //         v0 +=1
+    //         vf +=1
+    //         renderVolumes()   
+    //     }
+    // })
     
-    function renderVolumes(){
-        const volumesLimitados=volumes.slice(v0, vf)
-        cardsVolumes.innerHTML=''
+    // function renderVolumes(){
+    //     const volumesLimitados=volumes.slice(v0, vf)
+    //     cardsVolumes.innerHTML=''
+    //     cardsDosVolumes(volumesLimitados)
+    // }
+    
+}
+
+export function renderVolumesDoManga(volumes) {
+    const cardsVolumes = document.getElementById('cardsVolumes')
+    const navEsquerda = document.getElementById('navEsquerda')
+    const navDireita = document.getElementById('navDireita')
+
+    let v0 = 0
+    let vf = 8
+
+    function atualizar() {
+        const volumesLimitados = volumes.slice(v0, vf)
+        cardsVolumes.innerHTML = ''
         cardsDosVolumes(volumesLimitados)
     }
-    
+
+    atualizar() // render inicial
+
+    // Controle de navegação
+    navEsquerda?.addEventListener('click', () => {
+        if (v0 > 0) {
+            v0--
+            vf--
+            atualizar()
+        }
+    })
+
+    navDireita?.addEventListener('click', () => {
+        if (vf < volumes.length) {
+            v0++
+            vf++
+            atualizar()
+        }
+    })
 }
