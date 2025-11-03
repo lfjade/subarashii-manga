@@ -1,4 +1,4 @@
-export function renderMangas(mangas, container){
+export function renderMangas(mangas, container, onClickCard){
     container.innerHTML = ''
 
     mangas.forEach(manga =>{
@@ -21,11 +21,7 @@ export function renderMangas(mangas, container){
         wrapper.appendChild(titulo)
         container.appendChild(wrapper)
     
-        card.addEventListener('click', () =>{
-            const idManga = card.dataset.id
-            window.location.href= `manga.html?id=${idManga}`
-    
-        })
+        card.addEventListener('click', () => onClickCard(manga.idmanga))
     })
 
 }

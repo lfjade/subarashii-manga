@@ -6,7 +6,9 @@ window.addEventListener('DOMContentLoaded', async () =>{
 
     try{
         const mangas = await getListaMangas()
-        renderMangas(mangas, container)
+        renderMangas(mangas, container, (id) =>{
+            window.location.href = `manga.html?id=${id}`
+        })
 
     } catch (erro){
         console.error("Erro ao carregar mangás no Controller:", erro)
