@@ -4,11 +4,12 @@ import { renderVolume, setBackground } from "../view/volumeView.js"
 
 window.addEventListener('DOMContentLoaded', async () =>{
     const params = new URLSearchParams(window.location.search)
-    const idVolume=params.get('id')
+    let idVolume=params.get('id')
     if(!idVolume) return
+    let dados
 
     try {
-        const dados = await getVolumeVolume(idVolume)
+        dados = await getVolumeVolume(idVolume)
 
         const volumeCorrigido={
             titulo: dados.titulo,
@@ -26,8 +27,37 @@ window.addEventListener('DOMContentLoaded', async () =>{
         setBackground(imgUrl)
 
         document.getElementById('voltar')?.addEventListener('click', () => window.nav.voltar())
-        document.getElementById('navEsquerda')?.addEventListener('click', () => console.log("click esquerda"))
-        document.getElementById('navDireita')?.addEventListener('click', () => console.log("click direita"))
+        document.getElementById('navEsquerda')?.addEventListener('click', async () => {
+            const novoId = Number(idVolume) - 1
+            if (novoId < 1) return
+
+            const dados = await getVolumeVolume(novoId)
+            const volumeCorrigido = {
+                titulo: dados.titulo,
+                numero: dados.numero,
+                sinopse: dados.sinopse,
+                splashUrl: `http://localhost:3000/volumes/splash/${novoId}`
+            }
+
+            renderVolume(volumeCorrigido)
+            idVolume = novoId // atualiza o id atual
+        })
+
+        document.getElementById('navDireita')?.addEventListener('click', async () => {
+            const novoId = Number(idVolume) + 1
+            if (novoId >= volumes.length) return
+
+            const dados = await getVolumeVolume(novoId)
+            const volumeCorrigido = {
+                titulo: dados.titulo,
+                numero: dados.numero,
+                sinopse: dados.sinopse,
+                splashUrl: `http://localhost:3000/volumes/splash/${novoId}`
+            }
+
+            renderVolume(volumeCorrigido)
+            idVolume = novoId // atualiza o id atual
+        })
     } catch (erro){
         console.error("Erro no controller Volume: ", erro)
     }
