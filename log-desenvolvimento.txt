@@ -24,3 +24,7 @@ no caso de cansar de CSS: começar a trabalhar a visualização da página volum
 ! titulos de pagina dinamicos
 ! icon no programa
 ! "exportar" como executável
+
+ajustes finos:
+diferença no tamanho da fonte do header
+parágrafo nas sinopses

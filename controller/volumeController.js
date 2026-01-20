@@ -45,7 +45,6 @@ window.addEventListener('DOMContentLoaded', async () =>{
 
         document.getElementById('navDireita')?.addEventListener('click', async () => {
             const novoId = Number(idVolume) + 1
-            if (novoId >= volumes.length) return
 
             const dados = await getVolumeVolume(novoId)
             const volumeCorrigido = {
@@ -56,7 +55,7 @@ window.addEventListener('DOMContentLoaded', async () =>{
             }
 
             renderVolume(volumeCorrigido)
-            idVolume = novoId // atualiza o id atual
+            idVolume = novoId 
         })
     } catch (erro){
         console.error("Erro no controller Volume: ", erro)

@@ -8,6 +8,7 @@ window.addEventListener('DOMContentLoaded', async () =>{
         const mangas = await getListaMangas()
         renderMangas(mangas, container, (id) =>{
             window.location.href = `manga.html?id=${id}`
+
         })
 
     } catch (erro){

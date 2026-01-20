@@ -3,6 +3,8 @@ export async function renderVolume(dados){
     const sinopse=document.getElementById('sinopse')
     const splashVolume=document.getElementById('splash-volume')
 
+    document.title=`${dados.titulo}: Volume ${dados.numero}`
+
     tituloVolume.textContent=`${dados.titulo}: Volume ${dados.numero}`
     sinopse.textContent=dados.sinopse
     splashVolume.src=dados.splashUrl

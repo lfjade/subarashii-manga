@@ -6,6 +6,8 @@ async function createMainWindow() {
     mainWindow = new BrowserWindow({
         width: 800,
         height: 600,
+        icon: path.join(__dirname, 'splash', 'icon', 'logo.ico'),
+        frame: false,
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
             contextIsolation: true,
@@ -15,6 +17,9 @@ async function createMainWindow() {
 
     await mainWindow.loadFile(path.join(__dirname, './view/home.html'))
     server = require('./db/server')
+
+    
+    mainWindow.setMenuBarVisibility(false)
 }
 
 app.whenReady().then(createMainWindow)

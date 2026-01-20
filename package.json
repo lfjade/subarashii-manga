@@ -1,14 +1,31 @@
 {
   "name": "subarashii-manga",
   "version": "1.0.0",
+  "description": "Display de mangás em Electron",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-builder"
   },
-  "author": "",
+  "build":{
+    "appId": "com.jade.subarashiimanga",
+    "productName": "Jade-san no Subarashii Manga",
+    "directories":{
+      "output": "dist"
+    },
+    "files": [
+      "!node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
+      "!**/node_modules/.bin",
+      "!**/*.map"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "splash/icon/logo.png"
+    }
+  },
+  "author": "Jade Lacerda Fernandes, @lfjade no github.",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^5.1.0",
@@ -16,6 +33,7 @@
     "mysql2": "^3.14.1"
   },
   "devDependencies": {
-    "electron": "^39.0.0"
+    "electron": "^39.0.0",
+    "electron-builder": "^26.0.12"
   }
 }

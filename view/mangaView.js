@@ -1,6 +1,9 @@
 import { cardsDosVolumes } from "./volumeView.js"
 
-export async function renderManga(manga, volumes){
+export async function renderManga(manga){
+
+    document.title=`${manga.titulo}`
+
     const splashManga=document.getElementById('splashmanga')
     const tituloManga = document.getElementById('titulo')
     const sinopseManga=document.getElementById('sinopse')
@@ -9,9 +12,7 @@ export async function renderManga(manga, volumes){
     const lancamento=document.getElementById('lancamento')
     const n_volumes=document.getElementById('n_volumes')
     const generos=document.getElementById('generos')
-    const navEsquerda=document.getElementById('navEsquerda')
-    const navDireita=document.getElementById('navDireita')
-    const cardsVolumes=document.getElementById('cardsVolumes')
+
 
     const img = document.createElement('img')
     img.src=`http://localhost:3000/splash/${manga.id}`
@@ -32,33 +33,6 @@ export async function renderManga(manga, volumes){
         p.textContent=g
         generos.appendChild(p)
     })
-
-    // let v0=0
-    // let vf=8
-
-    // renderVolumes()
-
-    // navEsquerda.addEventListener('click', () =>{
-    //     if (v0>0){
-    //         v0 -= 1
-    //         vf -= 1
-    //         renderVolumes()   
-    //     }
-    // })
-
-    // navDireita.addEventListener('click', () =>{
-    //     if (vf<volumes.length){
-    //         v0 +=1
-    //         vf +=1
-    //         renderVolumes()   
-    //     }
-    // })
-    
-    // function renderVolumes(){
-    //     const volumesLimitados=volumes.slice(v0, vf)
-    //     cardsVolumes.innerHTML=''
-    //     cardsDosVolumes(volumesLimitados)
-    // }
     
 }
 
@@ -76,9 +50,9 @@ export function renderVolumesDoManga(volumes) {
         cardsDosVolumes(volumesLimitados)
     }
 
-    atualizar() // render inicial
+    atualizar()
 
-    // Controle de navegação
+
     navEsquerda?.addEventListener('click', () => {
         if (v0 > 0) {
             v0--
