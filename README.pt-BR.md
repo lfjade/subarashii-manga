@@ -7,6 +7,7 @@
 #### Subarashii Manga é uma aplicação desktop desenvolvida com Electron, que exibe um catálogo local de mangás armazenado em um banco de dados MySQL.
 
 > 🚨 **ATENÇÃO**! 🚨 Este projeto **exige** que o **MySQL** esteja instalado e configurado corretamente.
+> 
 > Se você ainda não o possui, pode baixá-lo no site oficial clicando [neste link](https://www.mysql.com/downloads/).
 
 </div>
